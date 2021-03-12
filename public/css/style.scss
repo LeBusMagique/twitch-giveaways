@@ -1,0 +1,64 @@
+body {
+    background: url('/img/background.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+}
+.flip-container {
+    perspective: 1000px;
+    position: fixed;
+    left: calc(100% / 2 - 200px);
+    z-index: 9999;
+    top: calc(100vh / 2 - 105px);
+
+    &.active .flipper {
+        transform: rotateY(180deg);
+    }
+
+    .flipper {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+
+        position: relative;
+    }
+}
+
+.flip-container, .front, .back {
+    width: 400px;
+    height: 210px;
+}
+
+.front, .back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    background: url('/img/face-a.png') no-repeat center center;
+    background-size: cover;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: url('/img/face-b.png') no-repeat center center;
+    background-size: cover;
+}
+
+.tickets {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    .ticket {
+        position: absolute;
+        width: 400px;
+        height: 210px;
+        background: url('/img/face-a.png') no-repeat center center;
+        display:none;
+    }
+}

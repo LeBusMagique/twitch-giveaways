@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/tailwind-2.0.3.min.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <title>Giveaways | Le Bus Magique</title>
+</head>
+<body>
+
+    <div class="absolute top-4 left-4 right-4 z-50 flex items-center justify-between">
+        <div class="flex space-x-4 items-center">
+
+            <button id="reload" class="shadow bg-white px-4 py-2 font-semibold rounded hover:bg-gray-100 focus:outline-none">
+                <i class="fas fa-sync"></i>
+            </button>
+
+            <button id="reveal" class="shadow bg-white px-4 py-2 font-semibold rounded hover:bg-gray-100 focus:outline-none">
+                <i class="fas fa-play"></i>
+            </button>
+
+            <button id="remove" data-uid="{{ winner.id }}" class="shadow bg-white px-4 py-2 font-semibold rounded hover:bg-gray-100 focus:outline-none">
+                <i class="fas fa-check"></i>
+            </button>
+
+            <span class="text-white font-bold uppercase" style="text-shadow: 0 0 5px #000;">
+                {% if total == 0 %}
+                    Aucun Ticket Magique
+                {% elseif total == 1 %}
+                    1 Ticket Magique
+                {% else %}
+                    {{ total }} Tickets Magiques
+                {% endif %}
+            </span>
+
+        </div>
+
+        <div>
+            <button id="reset" class="shadow bg-white px-4 py-2 font-semibold rounded hover:bg-gray-100 focus:outline-none">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+
+    {% if winner %}
+
+        <div class="flip-container" style="display: none;">
+            <div class="flipper">
+                <div class="front">
+                </div>
+                <div class="back flex items-center justify-center font-bold text-2xl px-7 text-center leading-10">
+                    🎁 🎁 🎁 🎁 🎁 🎁<br />{{ winner.name }}<br />🎁 🎁 🎁 🎁 🎁 🎁
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+    {% if total > 1 %}
+
+        <div class="tickets">
+            {% for i in 2..total %}
+                <div class="ticket"></div>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/confetti.min.js"></script>
+    <script src="/js/script.min.js"></script>
+
+</body>
+</html>
