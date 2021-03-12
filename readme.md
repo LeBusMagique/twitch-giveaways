@@ -39,7 +39,7 @@ Cocher :
 - Désactiver la source quand elle n'est pas visible
 - Rafraîchir le navigateur lorsque la scène devient active
 
-Pour activer les boutons, clic droit sur la scène > Ineragir.
+Pour activer les boutons, clic droit sur la scène > Interagir.
 
 Les boutons, de gauche à droite :
 - Recharger la fenêtre (et donc les tickets et le gagnant)
